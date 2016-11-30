@@ -163,14 +163,14 @@ var App = React.createClass({
   if (view === 'latest') {
     this.setState({
       currentView: view,
-      movies: movieData.sort(this.movieCompareByReleased),
+      movies: this.state.movies.sort(this.movieCompareByReleased),
       currentMovie: null
     });
   }
   if (view === 'alpha') {
     this.setState({
       currentView: view,
-      movies: movieData.sort(this.movieCompareByTitle),
+      movies: this.state.movies.sort(this.movieCompareByTitle),
       currentMovie: null
     });
   }
