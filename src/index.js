@@ -10,13 +10,7 @@ var {Gmaps, Marker} = ReactGMaps
 var movieData = require('./movies.json')
 var theatres = require('./theatres.json')
 
-// There should really be some JSON-formatted data in movies.json, instead of an empty array.
-// I started writing this command to extract the data from the learn-sql workspace
-// on C9, but it's not done yet :) You must have the csvtojson command installed for this to work.
-// npm install -g csvtojson
-// sqlite3 -csv -header movies.sqlite3 'select "imdbID" as id, "title" from movies' | csvtojson --maxRowLength=0 > movies.json
-
-// Firebase
+//firebase
 var Rebase = require('re-base')
 var base = Rebase.createClass({
   apiKey: "AIzaSyCbdd76nlTXdpwjfJpRWiYdc13lKPAlYpY",   // replace with your Firebase application's API key
@@ -161,7 +155,8 @@ var App = React.createClass({
   },
   resetMovieListClicked: function() {
     this.setState({
-      movies: movieData.sort(this.movieCompareByReleased)
+      movies: movieData.sort(this.movieCompareByReleased),
+      currentView: 'latest'
     })
   },
   viewChanged: function(view) {
